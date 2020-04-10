@@ -1,0 +1,229 @@
+:root {
+  --dark: #373737;
+  --green: #45ca65;
+  --darkgreentrans: rgba(50,250,50,.2);
+  --darkgreen8: rgba(50,200,50,.8);
+  --blue: #3598b4;
+  --frank: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--frank);
+}
+
+body, html {
+  height: auto;
+  width: 100%;
+  background-color: var(--dark);
+  overflow: visible;
+}
+
+.bg {
+  background-image: url("img/tent_bg.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  box-shadow: 0px 0px 150px 60px #111 inset;
+  display: grid;
+  justify-content: center;
+  padding: 1.75em 0;
+  overflow: hidden;
+}
+
+.portal-wrapper {
+  background: rgba(20,20,20,.9);
+  margin-bottom: auto;
+  padding: 1em 2em;
+  box-shadow: 0px 5px 10px 2px var(--dark);
+  border-radius: 1em;
+}
+
+.portal-title-bar {
+  display: grid;
+  text-align: center;
+}
+
+.portal-title-bar h6 {
+  font-style: italic;
+  font-size: 14px;
+  margin: auto;
+  padding: 1.5em 0;
+  color: #ddd;
+}
+
+.spacer1-5em {
+  height: 1.5em;
+  display: block;
+}
+
+.page-contain {
+  text-align: center;
+}
+
+.form-group {
+  position: relative;
+  display: block;
+  text-align: left;
+}
+
+.form-group input {
+  width: 100%;
+  padding: .5em 1em;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ccc;
+  margin-top: .5em;
+  margin-bottom: 1.5em;
+  border: none;
+  border-bottom: 2px solid var(--green);
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  box-sizing: border-box;
+  transition-duration: 750ms;
+  transition-property: background, border-radius;
+}
+
+.form-group input[type="radio"]:valid ~ label, .form-group input[type="radio"] label{
+  color: orange;
+  position: relative;
+  top: 0;
+  left: 1em;
+}
+
+.form-group input[type="submit"]:valid {
+  background: rgba(70,70,70,.8);
+  width: auto;
+  color: #ddd;
+  border-bottom: 2px solid var(--green);
+  box-shadow: 0px -1px 3px #777;
+  transition-duration: 500ms;
+  transition-property: background, color, border;
+  cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover, .form-group input[type="submit"]:focus {
+  background: var(--darkgreen8);
+  border-bottom: 2px solid orange;
+  color: #111;
+}
+
+.form-group span {
+  padding-top: 1em;
+  float: right;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.form-group span a {
+  color: #ddd;
+  text-decoration: none;
+  transition-duration: 500ms;
+  transition-property: color;
+}
+
+.form-group span a:hover {
+  color: orange;
+}
+
+.form-group input:focus, .form-group input:valid {
+  background: var(--darkgreentrans);
+  box-shadow: none;
+  border-bottom: 2px solid #ddd;
+  border-radius: .5em;
+}
+
+.form-group label {
+  position: absolute;
+  top: 10px; left: 1em;
+  padding: .5em 0;
+  color: #ccc;
+  font-size: 16px;
+  font-weight: 600;
+  pointer-events: none;
+  transition: 500ms;
+  letter-spacing: 2px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: .5em 1em;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ccc;
+  margin-top: .5em;
+  margin-bottom: 1.5em;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-bottom: 2px solid #ddd;
+  border-radius: .5em;
+  background: var(--darkgreentrans);
+  box-sizing: border-box;
+}
+
+.form-group select ~ label {
+  top: -18px;
+  left: .5em;
+  color: var(--green);
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.form-group input:focus ~ label, .form-group input:valid ~ label  {
+  top: -18px;
+  left: .5em;
+  color: var(--green);
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.form-err {
+  color: orange;
+  top: -1.5em;
+  left: .5em;
+  font-size: .8em;
+}
+
+.half-form {
+  float: left;
+}
+
+.half-form:first-child {
+  width: 60%;
+  text-align: left;
+}
+
+.half-form:last-child {
+  width: 40%;
+  text-align: right;
+}
+
+.half-form select, .half-form input {
+  width: 90%;
+  text-align: center;
+}
+
+.half-form label {
+  position: absolute;
+  top: 10px; left: 14em;
+  padding: .5em 0;
+  color: #ccc;
+  font-size: 16px;
+  font-weight: 600;
+  pointer-events: none;
+  transition: 500ms;
+  letter-spacing: 2px;
+}
+
+.half-form input:focus ~ label, .half-form input:valid ~ label  {
+  top: -18px;
+  left: 18.3em;
+  color: var(--green);
+  letter-spacing: 1px;
+  font-size: 12px;
+}

@@ -1,0 +1,22 @@
+{% extends 'shell.html' %}
+{% block content %}
+
+<div class="page-contain">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.email }}
+      {{ form.email.label }}
+    </div>
+    <div class="form-group">
+      {{ form.pw }}
+      {{ form.pw.label }}
+    </div>
+    <div class="form-group">
+      {{ form.submit }}
+      <span>Forgot Password?<a href="#">Click Here</a></span>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='the.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Richards's Rentals - {{title}} :: Hosted by Project Wigwam</title>
+</head>
+<body>
+  <header class="fixed-header">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="{{ url_for('main.home') }}"><img src='#'>Home</a>
+        <span class="sub-title">RSR App</span>
+      </div>
+      <div class="header-links">
+        <a href="{{ url_for('guy.register') }}"><span class="link-option">Register</span></a>
+        <a href="{{ url_for('guy.login') }}"><span class="link-option">Login</span></a>
+        <a href="{{ url_for('cal.view_cal') }}"><span class="link-option">Calendar</span></a>
+        <a href="{{ url_for('work.add_single') }}"><span class="link-option">Schedule</span></a>
+
+        {% if current_user.is_authenticated %}
+          <a href="{{url_for('guy.logout')}}"><span class="link-option">Logout</span></a>
+          <a href="{{url_for('guy.register')}}"><span class="link-option">Profile</span></a>
+          {% if current_user.is_admin == 'yes' %}
+          <a href="/admin"><span class="link-option">Admin</span></a>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </header>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <h6>{{ message }}</h6>
+      {% endfor %}
+    {% elif def_text %}
+      <h6>{{ def_text }}</h6>
+    {% else %}
+      <div class="spacer1-5em"></div>
+    {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</body>
+</html>

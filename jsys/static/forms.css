@@ -1,0 +1,67 @@
+.form-row {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.form-row:last-child {
+  margin-bottom: 0;
+}
+
+.form-row ul {
+  margin: 0;
+  padding: 0;
+}
+
+.form-row li {
+  list-style: none;
+}
+
+.form-row input, .form-row select {
+  width: 100%;
+  padding: .5em 1em;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ddd;
+  border: none;
+  border-bottom: 2px solid var(--green);
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  box-sizing: border-box;
+  transition-duration: 750ms;
+  transition-property: background, border-radius;
+
+}
+
+.form-row input:focus, .form-row input:valid,
+.form-row select:focus, .form-row select:valid {
+  background: green;
+  border-bottom: 2px solid #ddd;
+  border-radius: .5em;
+  box-shadow: none;
+}
+
+.form-row label {
+  color: green;
+  font-size: .8em;
+  font-weight: 600;
+}
+
+.on-off-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1em;
+}
+
+.on-off-col input[type="radio"] {
+  width: auto;
+  margin-right: 1em;
+}
+
+.on-off-col input[type="radio"] ~ label {
+  color: orange;
+}
+
+.tr {
+  background: transparent !important;
+}

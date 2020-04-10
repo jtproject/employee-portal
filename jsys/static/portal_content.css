@@ -1,0 +1,24 @@
+.portal-card {
+  width: 300px;
+  background: white;
+  margin-bottom: 1.5em; 
+}
+
+.portal-card:last-child {
+  margin-bottom: .8em;
+}
+
+.footer-right, .footer-left {
+  width: 50%;
+  color: var(--light);
+  font-size: .6em;
+  line-height: .6em;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-right {
+  text-align: right;
+}

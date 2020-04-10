@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+<!--
+  optional area for urgent messages / admin buttons
+  TODO: add an if statement to show/hide
+-->
+<div class="header-message-wrap">
+  <span>Header message</span>
+</div>
+
+<div class="main-wrapper">
+
+  <!--
+    main table layout
+  -->
+  <div class="portal-wrap">
+    <!-- header image link -->
+    <div class="portal-header">
+      <a href="{{url_for('main.new')}}">
+        <img src="{{url_for('static', filename='img/rsr.png')}}" alt="">
+      </a>
+    </div>
+    <!-- end header -->
+
+    <!-- menu bar -->
+    <div class="portal-menu">
+      <div class="portal-menu-btn">
+        <button class="menu-link" onclick="window.location.href='{{url_for('cal.view_cal')}}';">
+          <img src="{{url_for('static', filename='img/schedule2.png')}}" alt="">
+          <p class="btn-text">Schedule</p>
+        </button>
+      </div>
+      <div class="portal-menu-btn">
+        <button class="menu-link" onclick="window.location.href='#';">
+          <img src="{{url_for('static', filename='img/event1.png')}}" alt="">
+          <p class="btn-text">Events</p>
+        </button>
+      </div>
+      <div class="portal-menu-btn">
+        <button class="menu-link" onclick="window.location.href='#';">
+          <img src="{{url_for('static', filename='img/alert1.png')}}" alt="">
+          <p class="btn-text">Alerts</p>
+        </button>
+      </div>
+      <div class="portal-menu-btn">
+        <button class="menu-link" onclick="window.location.href='#';">
+          <img src="{{url_for('static', filename='img/profile1.png')}}" alt="">
+          <p class="btn-text">Profile</p>
+        </button>
+      </div>
+    </div>
+    <!-- end menu -->
+
+    <!-- flash messages -->
+    <div class="portal-flash">
+      <span>Portal Flash</span>
+    </div>
+    <!-- end flash -->
+
+    <!--
+      portal content
+      import page-specific content
+    -->
+    <div class="portal-content">
+      <div class="portal-card tr">
+        <form action="" method="POST">
+
+          <div class="form-row">
+            <label for="row1">Input</label>
+            <input type="text" id="row1" required="">
+          </div>
+          <div class="form-row">
+            <label for="row2">Select</label>
+            <select name="sel" id="sel" required>
+              <option value="">None</option>
+              <option value="1">First</option>
+              <option value="2">Second</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="on-off-row">
+              <div class="on-off-col">
+
+              <ul id="choice_switcher">
+                <li><input checked id="choice_switcher-0" name="choice_switcher" type="radio" value="choice1">
+                <label for="choice_switcher-0">On</label></li>
+                <li><input id="choice_switcher-1" name="choice_switcher" type="radio" value="choice2">
+                <label for="choice_switcher-1">Off</label></li>
+              </ul>
+              </div>
+              <div class="on-off-col">
+                <label for="row2">Select</label>
+                <select name="sel" id="sel" required>
+                  <option value="">None</option>
+                  <option value="1">First</option>
+                  <option value="2">Second</option>
+                </select>
+              </div>
+              <div class="on-off-col">
+                <label for="row2">Select</label>
+                <select name="sel" id="sel" required>
+                  <option value="">None</option>
+                  <option value="1">First</option>
+                  <option value="2">Second</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </form>
+        {% block content %}{% endblock %}
+      </div>
+      <div class="portal-card">
+        Page 2
+      </div>
+    </div>
+    <!-- end portal-content -->
+
+    <!-- footer content -->
+    <div class="portal-footer">
+      <div class="footer-left">
+        Employee Portal
+      </div>
+      <div class="footer-right">
+        c. 2020 :: Jason Thompson
+      </div>
+    </div>
+    <!-- end footer -->
+  </div>
+  <!-- end of main-wrapper -->
+
+  <!--
+    footer information - links to my services
+    ### currently hidden
+    ### maybe eventual inbox etc.
+  -->
+  <div class="footer-wrap">
+    <span>Footer</span>
+  </div>
+</div>
+
+</body>
+</html>
