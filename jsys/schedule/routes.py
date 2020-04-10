@@ -2,7 +2,7 @@ from flask import render_template, url_for, request, Blueprint, redirect, flash
 from jsys.models import TheCalendar, TheDays, Employee, Schedule
 from jsys.schedule.forms import AddWorkForm
 from flask_login import current_user
-from jsys import _D, utils
+from jsys import _D, utils, dataf
 from datetime import datetime
 import pickle
 
@@ -10,6 +10,7 @@ work = Blueprint('work', __name__)
 
 @work.route('/schedule/add', methods=['GET', 'POST'])
 def add_single():
+    x = dataf.form_choices_active_emp()
     ### Employee drop down menu
     active_workers = Employee.query.filter_by(status='active')
     list_workers = [('','--- Select Employee ---')]

@@ -1,1 +1,2 @@
 # employee-portal
+This web application gives employees online access to their schedule, request time off, and update their availability. Supervisors can add/edit the schedules and approve time off requests. The event calendar and alert system are in early development to enhance communication and provide reminders that are accessible from anywhere with an internet connection. It is designed in a mobile-first layout that expands on desktop screens.
