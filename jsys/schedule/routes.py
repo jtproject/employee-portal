@@ -10,12 +10,8 @@ work = Blueprint('work', __name__)
 
 @work.route('/schedule/add', methods=['GET', 'POST'])
 def add_single():
-    x = dataf.form_choices_active_emp()
     ### Employee drop down menu
-    active_workers = Employee.query.filter_by(status='active')
-    list_workers = [('','--- Select Employee ---')]
-    for x in active_workers:
-        list_workers.append((x.id, x.first_name + ' ' + x.last_name))
+    list_workers = dataf.form_choices_active_emp()
     ### Month and Year drop down menu - only current and beyond is choosable
     day, mon, yr = datetime.today().strftime('%d'), datetime.today().strftime('%m'), datetime.today().strftime('%Y')
     mon, yr = int(mon), int(yr)

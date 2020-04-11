@@ -45,3 +45,9 @@ def logout():
     logout_user()
     flash(f'Logged out!')
     return redirect(url_for('main.home'))
+
+@guy.route('/profile')
+def profile():
+    guy = Employee.query.filter_by(id=current_user.id).first()
+
+    return render_template('view_profile.html', title='Profile', guy=guy, utils=utils)

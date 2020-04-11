@@ -1,22 +1,72 @@
 {% extends 'shell.html' %}
 {% block content %}
 
-<div class="page-contain">
-  <form method="POST" action="">
-    {{ form.hidden_tag() }}
-    <div class="form-group">
-      {{ form.email }}
-      {{ form.email.label }}
+<div class="portal-card">
+  <div class="portal-table">
+    <div class="portal-table-title">
+      <span class="portal-table-title-text">User Info</span>
+      <span class="portal-table-title-link">
+        <a href="#">[ edit profile ]</a>
+      </span>
     </div>
-    <div class="form-group">
-      {{ form.pw }}
-      {{ form.pw.label }}
+    <div class="portal-table-user-info">
+      <img src="static/img/profile/{{ guy.profile_pic }}" alt="">
+      <div class="portal-table-user-info-text">
+        <p id="first-name">{{ guy.first_name.upper() }}</p>
+        <p id="last-name">{{ guy.last_name }}</p>
+        <p id="phone-main">{{ utils.phone_format(guy.phone_main) }}</p>
+      </div>
     </div>
-    <div class="form-group">
-      {{ form.submit }}
-      <span>Forgot Password?<a href="#">Click Here</a></span>
+    <div class="portal-table-row">
+      <div class="portal-table-col-x2 left">
+        <p class="portal-table-row-label">Email</p>
+        <p>{{ guy.email }}</p>
+      </div>
+      <div class="portal-table-col right">
+        <p class="portal-table-row-label">Status</p>
+        <p>{{ guy.status }}</p>
+      </div>
     </div>
-  </form>
+    <div class="portal-table-row">
+      <div class="portal-table-col-x2 left">
+        <p class="portal-table-row-label">Alt Phone</p>
+        <p>{{ guy.phone_alt or 'N/A' }}</p>
+      </div>
+      <div class="portal-table-col right">
+        <p class="portal-table-row-label">Rank</p>
+        <p>
+          {% if guy.is_driver == 'no' %}
+            worker
+          {% else %}
+            driver
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="portal-card">
+  <div class="portal-table">
+    <div class="portal-table-title">
+      <span class="portal-table-title-text">Availability</span>
+      <span class="portal-table-title-link">
+        <a href="#">[ update ]</a>
+      </span>
+    </div>
+    <div class="portal-table-row">{{ guy.first_name }} {{ guy.last_name }}</div>
+    <div class="portal-table-row">Cell #  {{ utils.phone_format(guy.phone_main) }}</div>
+    <div class="portal-table-row">Email {{ guy.email }}</div>
+    <div class="portal-table-row">Status {{ guy.status }}</div>
+    <div class="portal-table-row">
+      Position
+      {% if guy.is_driver == 'no' %}
+        worker
+      {% else %}
+        driver
+      {% endif %}
+    </div>
+  </div>
 </div>
 
 {% endblock content %}

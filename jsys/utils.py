@@ -74,6 +74,7 @@ def phone_strip(x):
     return convert
 
 def phone_format(x):
+    x = str(x)
     count=0
     for each in x:
         if count == 0:
