@@ -2,16 +2,21 @@
 
 {% block content %}
 
-<main>
-  <div class="page-contain">
-    {% if current_user.is_authenticated %}
+<div class="portal-card">
+  {% if current_user.is_authenticated %}
+    <div class="portal-table">
+      <div class="portal-table-title">Title</div>
       {% for x in work %}
-        <p>
+        <div class="portal-table-row">
           {{ x }}
-        </p><br>
+        </div>
       {% endfor %}
-    {% endif %}
-  </div>
-</main>
+    </div>
+  {% endif %}
+</div>
+
+<div class="portal-card">
+
+</div>
 
 {% endblock content %}

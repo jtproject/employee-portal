@@ -54,17 +54,33 @@
         <a href="#">[ update ]</a>
       </span>
     </div>
-    <div class="portal-table-row">{{ guy.first_name }} {{ guy.last_name }}</div>
-    <div class="portal-table-row">Cell #  {{ utils.phone_format(guy.phone_main) }}</div>
-    <div class="portal-table-row">Email {{ guy.email }}</div>
-    <div class="portal-table-row">Status {{ guy.status }}</div>
     <div class="portal-table-row">
-      Position
-      {% if guy.is_driver == 'no' %}
-        worker
-      {% else %}
-        driver
-      {% endif %}
+      <div class="portal-table-col right">Mon</div>
+      <div class="portal-table-col-x2 center">All day</div>
+    </div>
+    <div class="portal-table-row">
+      <div class="portal-table-col right">Tues</div>
+      <div class="portal-table-col-x2 center">All day</div>
+    </div>
+    <div class="portal-table-row">
+      <div class="portal-table-col right">Wed</div>
+      <div class="portal-table-col-x2 center">All day</div>
+    </div>
+    <div class="portal-table-row">
+      <div class="portal-table-col right">Thur</div>
+      <div class="portal-table-col-x2 center">All day</div>
+    </div>
+    <div class="portal-table-row">
+      <div class="portal-table-col right">Fri</div>
+      <div class="portal-table-col-x2 center">All day</div>
+    </div>
+    <div class="portal-table-row">
+      <div class="portal-table-col right">Sat</div>
+      <div class="portal-table-col-x2 center">All day</div>
+    </div>
+    <div class="portal-table-row">
+      <div class="portal-table-col right">Sun</div>
+      <div class="portal-table-col-x2 center">All day</div>
     </div>
   </div>
 </div>

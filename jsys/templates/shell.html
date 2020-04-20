@@ -24,12 +24,13 @@
   <div class="portal-wrap">
     <!-- header image link -->
     <div class="portal-header">
-      <a href="{{url_for('main.new')}}">
+      <a href="{{url_for('main.home')}}">
         <img src="{{url_for('static', filename='img/rsr.png')}}" alt="">
       </a>
     </div>
     <!-- end header -->
 
+    {% if current_user.is_authenticated %}
     <!-- menu bar -->
     <div class="portal-menu">
       <div class="portal-menu-btn">
@@ -58,6 +59,36 @@
       </div>
     </div>
     <!-- end menu -->
+    {% else %}
+    <!-- menu bar -->
+    <div class="portal-menu">
+      <div class="portal-menu-btn">
+        <button class="menu-link" onclick="window.location.href='{{url_for('guy.login')}}';">
+          <img src="{{url_for('static', filename='img/schedule2.png')}}" alt="">
+          <p class="btn-text">Login</p>
+        </button>
+      </div>
+      <div class="portal-menu-btn">
+        <button class="menu-link" onclick="window.location.href='{{url_for('guy.register')}}';">
+          <img src="{{url_for('static', filename='img/profile1.png')}}" alt="">
+          <p class="btn-text">Register</p>
+        </button>
+      </div>
+      <div class="portal-menu-btn">
+        <button class="menu-link" onclick="window.location.href='#';">
+          <img src="{{url_for('static', filename='img/event1.png')}}" alt="">
+          <p class="btn-text">Apply</p>
+        </button>
+      </div>
+      <div class="portal-menu-btn">
+        <button class="menu-link" onclick="window.location.href='#';">
+          <img src="{{url_for('static', filename='img/alert1.png')}}" alt="">
+          <p class="btn-text">???</p>
+        </button>
+      </div>
+    </div>
+    <!-- end menu -->
+    {% endif %}
 
     <!-- flash messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}

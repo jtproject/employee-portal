@@ -10,8 +10,6 @@ main = Blueprint('main', __name__)
 def home():
     if current_user.is_authenticated:
         work = Schedule.query.filter_by(emp_id=current_user.id).all()
-        for x in work:
-            print(work)
     else:
         work = 'NOTHING'
     return render_template('home.html', work=work, title='Home')

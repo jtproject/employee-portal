@@ -1,13 +1,14 @@
-{% extends 'root.html' %}
+{% extends 'shell.html' %}
 {% block content %}
 
-<div class="page-contain">
-  <form method="POST" action="">
+<div class="portal-card">
+  <form action="" method="POST">
     {{ form.hidden_tag() }}
-
-    <div class="form-group">
-      {{ form.fname }}
+    <div class="form-row">
       {{ form.fname.label }}
+      {{ form.fname }}
+      <!--label for="row1">Input</label>
+      <input type="text" id="row1" required=""-->
     </div>
     {% if form.fname.errors %}
 			{% for error in form.fname.errors %}
@@ -15,9 +16,9 @@
 			{% endfor %}
 		{% endif %}
 
-    <div class="form-group">
-      {{ form.lname }}
+    <div class="form-row">
       {{ form.lname.label }}
+      {{ form.lname }}
     </div>
     {% if form.lname.errors %}
 			{% for error in form.lname.errors %}
@@ -25,9 +26,9 @@
 			{% endfor %}
 		{% endif %}
 
-    <div class="form-group">
-      {{ form.email }}
+    <div class="form-row">
       {{ form.email.label }}
+      {{ form.email }}
     </div>
     {% if form.email.errors %}
 			{% for error in form.email.errors %}
@@ -35,9 +36,9 @@
 			{% endfor %}
 		{% endif %}
 
-    <div class="form-group">
-      {{ form.num }}
+    <div class="form-row">
       {{ form.num.label }}
+      {{ form.num }}
     </div>
     {% if form.num.errors %}
 			{% for error in form.num.errors %}
@@ -45,9 +46,9 @@
 			{% endfor %}
 		{% endif %}
 
-    <div class="form-group">
-      {{ form.pw }}
+    <div class="form-row">
       {{ form.pw.label }}
+      {{ form.pw }}
     </div>
     {% if form.pw.errors %}
 			{% for error in form.pw.errors %}
@@ -55,21 +56,25 @@
 			{% endfor %}
 		{% endif %}
 
-    <div class="form-group">
-      {{ form.confirm }}
+    <div class="form-row">
       {{ form.confirm.label }}
+      {{ form.confirm }}
     </div>
     {% if form.confirm.errors %}
 			{% for error in form.confirm.errors %}
 				<div class="form-group form-err">{{ error }}</div>
 			{% endfor %}
 		{% endif %}
-    
-    <div class="form-group">
+
+    <div class="form-row">
       {{ form.submit }}
       <span>Already Registered? <a href="{{url_for('guy.login')}}">Login</a></span>
     </div>
   </form>
+</div>
+
+<div class="portal-card">
+  
 </div>
 
 {% endblock content %}
