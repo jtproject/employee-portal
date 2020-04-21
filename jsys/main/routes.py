@@ -12,7 +12,7 @@ def home():
         work = Schedule.query.filter_by(emp_id=current_user.id).all()
     else:
         work = 'NOTHING'
-    return render_template('home.html', work=work, title='Home')
+    return render_template('home.html', work=work, title='Home', utils=utils)
 
 @main.route('/new', methods=['GET', 'POST'])
 def new():

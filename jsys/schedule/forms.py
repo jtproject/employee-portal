@@ -15,3 +15,12 @@ class AddWorkForm(FlaskForm):
 
     def validate(self):
         return True
+
+class RequestOffForm(FlaskForm):
+    month_year_opt = SelectField(u'Month / Year', choices=[], validators=[DataRequired()])
+    day_field = StringField('Day', validators=[DataRequired()])
+    time_field = StringField('Time Needed')
+    submit = SubmitField('Request')
+
+    def validate(self):
+        return True

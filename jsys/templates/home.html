@@ -5,10 +5,14 @@
 <div class="portal-card">
   {% if current_user.is_authenticated %}
     <div class="portal-table">
-      <div class="portal-table-title">Title</div>
+      <div class="portal-table-title">Weekly Schedule</div>
       {% for x in work %}
         <div class="portal-table-row">
-          {{ x }}
+          {{ x.workdate.day_name }},
+          {{ utils.month_num_to_str(x.workdate.calid.the_month) }}
+          {{ x.workdate.day_num }},
+          {{ x.workdate.calid.the_year }} -
+          {{ x.on_off }}
         </div>
       {% endfor %}
     </div>

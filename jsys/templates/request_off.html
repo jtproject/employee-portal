@@ -1,0 +1,29 @@
+{% extends 'shell.html' %}
+{% block content %}
+
+<div class="portal-card">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="form-row">
+      {{ form.month_year_opt.label }}
+      {{ form.month_year_opt }}
+    </div>
+    <div class="form-row">
+      {{ form.day_field.label }}
+      {{ form.day_field }}
+    </div>
+    <div class="form-row">
+      {{ form.time_field.label }}
+      {{ form.time_field }}
+    </div>
+    <div class="form-row">
+      {{ form.submit }}
+    </div>
+  </form>
+</div>
+
+<div class="portal-card">
+
+</div>
+
+{% endblock content %}

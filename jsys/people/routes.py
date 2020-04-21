@@ -24,6 +24,11 @@ def register():
 
 @guy.route('/login', methods=['GET', 'POST'])
 def login():
+    ### FOR CHANGING PASSWORD ENCODING ON UPLOAD
+    #temp = Employee.query
+    #for x in temp:
+    #    x.password = _E.generate_password_hash('1')
+    #_D.session.commit()
     if current_user.is_authenticated:
         flash(f'You\'re already logged in!', 'danger')
         return redirect(url_for('main.home'))
