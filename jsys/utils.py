@@ -36,9 +36,9 @@ def weekday_str_to_abr(x):
     convert = {
         'Sunday': 'Sun',
         'Monday': 'Mon',
-        'Tuesday': 'Tues',
+        'Tuesday': 'Tue',
         'Wednesday': 'Wed',
-        'Thursday': 'Thur',
+        'Thursday': 'Thu',
         'Friday': 'Fri',
         'Saturday': 'Sat'
     }

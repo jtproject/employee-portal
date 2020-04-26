@@ -53,7 +53,5 @@ def add_single():
             _D.session.add(schedule)
             _D.session.commit()
             flash(f'Added entry for {guy.first_name} {guy.last_name}')
-        return redirect(url_for('main.home'))
-
-
+            return redirect(url_for('main.home'))
     return render_template('add_work_single.html', form=form, title='Add Schedule Entry')

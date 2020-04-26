@@ -111,6 +111,11 @@ p#phone-main {
   width: 200px;
 }
 
+.portal-table-col-half {
+  width: 150px;
+}
+
+
 .footer-right, .footer-left {
   width: 50%;
   color: var(--light);
@@ -136,4 +141,28 @@ p#phone-main {
 
 .center {
   text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.schedule-day {
+  background: green;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.schedule-day span {
+  width: 40px;
+  font-size: 13px;
+  color: orange;
+  position: relative;
+  top: 10px;
+}
+
+.schedule-date {
+  width: 100px;
 }

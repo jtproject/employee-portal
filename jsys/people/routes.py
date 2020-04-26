@@ -1,6 +1,6 @@
 from flask import render_template, url_for, request, Blueprint, redirect, flash
 from jsys.models import TheCalendar, TheDays, Employee, Schedule, Requests, Available
-from jsys.people.forms import RegGuy, LoginForm
+from jsys.people.forms import RegGuy, LoginForm, UpdateAvailabilityForm
 from flask_login import login_user, current_user, logout_user, login_required
 from jsys import _D, _E, _L, utils
 
@@ -21,6 +21,15 @@ def register():
         return redirect(url_for('guy.login'))
     x = 'All fields are required.'
     return render_template('register.html', form=form, title='Register Your Employee Account', def_text=x)
+
+@guy.route('/availability/update', methods=['GET', 'POST'])
+def edit_avail():
+    form = UpdateAvailabilityForm()
+    if form.validate_on_submit():
+        print(form.monday_all.data)
+        print(form.monday_opt.data)
+        return redirect(url_for('guy.profile'))
+    return render_template('update_availability.html', title='Update Availability', form=form)
 
 @guy.route('/login', methods=['GET', 'POST'])
 def login():

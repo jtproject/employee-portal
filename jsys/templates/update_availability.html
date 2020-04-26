@@ -1,0 +1,34 @@
+{% extends 'shell.html' %}
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+  <div class="portal-card">
+    <form action="" method="POST">
+    <div class="portal-table">
+      <div class="portal-table-title">Monday</div>
+      <div class="portal-table-row">
+          {{ form.monday_all.label }}
+          {{ form.monday_all }}
+          {{ form.monday_opt }}
+      </div>
+    </div>
+  </div>
+
+  <div class="portal-card">
+    <div class="portal-table">
+      <div class="portal-table-title">Finished?</div>
+      <div class="portal-table-row">
+      </div>
+      <div class="portal-table-title">Finished?</div>
+      <div class="portal-table-row">
+        {{ form.submit }}
+      </div>
+    </div>
+    </form>
+  </div>
+{% else %}
+  HOW YOU HERE???
+{% endif %}
+
+{% endblock content %}

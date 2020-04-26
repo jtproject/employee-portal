@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from flask_login import current_user
 from jsys.models import Employee
@@ -34,6 +34,15 @@ class LoginForm(FlaskForm):
     pw = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
+
+
+class UpdateAvailabilityForm(FlaskForm):
+    monday_all = BooleanField('All Day')
+    monday_opt = SelectField(validators=[DataRequired()], choices=[('1', 'None')])
+    submit = SubmitField('Update')
+
+    def validate(self):
+        return True
 
 
 class UpdateAccountForm(FlaskForm):
