@@ -90,6 +90,9 @@ class Available(_D.Model):
     return_date = _D.Column(_D.String(20))
     leave_date = _D.Column(_D.String(20))
 
+    def __repr__(self):
+        return f'[AVAIL//GUY{self.emp_id}] :: M -> {self.monday} | Tu -> {self.tuesday} | W -> {self.wednesday} | Th -> {self.thursday} | F -> {self.friday} | Sa -> {self.saturday} | Su -> {self.sunday}'
+
 class Event(_D.Model):
     id = _D.Column(_D.Integer, primary_key=True)
     date_added = _D.Column(_D.String(20), nullable=False)

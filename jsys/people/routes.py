@@ -26,8 +26,18 @@ def register():
 def edit_avail():
     form = UpdateAvailabilityForm()
     if form.validate_on_submit():
-        print(form.monday_all.data)
-        print(form.monday_opt.data)
+        mon = form.monday_opt.choices[int(form.monday_opt.data)-1][1]
+        tue = form.tuesday_opt.choices[int(form.tuesday_opt.data)-1][1]
+        wed = form.wednesday_opt.choices[int(form.wednesday_opt.data)-1][1]
+        thu = form.thursday_opt.choices[int(form.thursday_opt.data)-1][1]
+        fri = form.friday_opt.choices[int(form.friday_opt.data)-1][1]
+        sat = form.saturday_opt.choices[int(form.saturday_opt.data)-1][1]
+        sun = form.sunday_opt.choices[int(form.sunday_opt.data)-1][1]
+        hours = Available(emp_id=current_user.id, monday=mon, tuesday=tue, wednesday=wed, thursday=thu, friday=fri, saturday=sat, sunday=sun)
+        #_D.session.add(hours)
+        #_D.session.commit()
+        flash(f'Availability Updated')
+        print(hours)
         return redirect(url_for('guy.profile'))
     return render_template('update_availability.html', title='Update Availability', form=form)
 
@@ -63,5 +73,5 @@ def logout():
 @guy.route('/profile')
 def profile():
     guy = Employee.query.filter_by(id=current_user.id).first()
-
-    return render_template('view_profile.html', title='Profile', guy=guy, utils=utils)
+    hours = Available.query.filter_by(emp_id=current_user.id).first()
+    return render_template('view_profile.html', title='Profile', guy=guy, hours=hours, utils=utils)
