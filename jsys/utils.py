@@ -91,3 +91,13 @@ def year_two_digits(x):
     x = str(x)
     convert = '\'' + x[-2] + x[-1]
     return convert
+
+def avail_choices(x):
+    data = {
+        1:'All Day',
+        2:'Need Off',
+        3:'Late Start',
+        4:'Early Out',
+        5:'Custom'
+    }
+    return data[int(x)]

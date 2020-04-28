@@ -24,21 +24,27 @@ def register():
 
 @guy.route('/availability/update', methods=['GET', 'POST'])
 def edit_avail():
+    hours = Available.query.filter_by(emp_id=current_user.id).first()
     form = UpdateAvailabilityForm()
     if form.validate_on_submit():
-        mon = form.monday_opt.choices[int(form.monday_opt.data)-1][1]
-        tue = form.tuesday_opt.choices[int(form.tuesday_opt.data)-1][1]
-        wed = form.wednesday_opt.choices[int(form.wednesday_opt.data)-1][1]
-        thu = form.thursday_opt.choices[int(form.thursday_opt.data)-1][1]
-        fri = form.friday_opt.choices[int(form.friday_opt.data)-1][1]
-        sat = form.saturday_opt.choices[int(form.saturday_opt.data)-1][1]
-        sun = form.sunday_opt.choices[int(form.sunday_opt.data)-1][1]
-        hours = Available(emp_id=current_user.id, monday=mon, tuesday=tue, wednesday=wed, thursday=thu, friday=fri, saturday=sat, sunday=sun)
-        #_D.session.add(hours)
-        #_D.session.commit()
+        hours.monday = form.monday_opt.data
+        hours.tuesday = form.tuesday_opt.data
+        hours.wednesday = form.wednesday_opt.data
+        hours.thursday = form.thursday_opt.data
+        hours.friday = form.friday_opt.data
+        hours.saturday = form.saturday_opt.data
+        hours.sunday = form.sunday_opt.data
+        _D.session.commit()
         flash(f'Availability Updated')
-        print(hours)
         return redirect(url_for('guy.profile'))
+    elif request.method == 'GET':
+        form.monday_opt.data = hours.monday
+        form.tuesday_opt.data = hours.tuesday
+        form.wednesday_opt.data = hours.wednesday
+        form.thursday_opt.data = hours.thursday
+        form.friday_opt.data = hours.friday
+        form.saturday_opt.data = hours.saturday
+        form.sunday_opt.data = hours.sunday
     return render_template('update_availability.html', title='Update Availability', form=form)
 
 @guy.route('/login', methods=['GET', 'POST'])
