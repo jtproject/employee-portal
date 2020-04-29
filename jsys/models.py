@@ -95,7 +95,7 @@ class Available(_D.Model):
 
 class Event(_D.Model):
     id = _D.Column(_D.Integer, primary_key=True)
-    date_added = _D.Column(_D.String(20), nullable=False)
+    date_added = _D.Column(_D.String(20), nullable=False, default=datetime.today().strftime('%Y-%m-%d'))
     added_by = _D.Column(_D.Integer, _D.ForeignKey('employee.id'), nullable=False)
     # event_date = _D.Column(_D.String(20), nullable=False)
     event_date = _D.Column(_D.Integer, _D.ForeignKey('the_days.id'), nullable=False)

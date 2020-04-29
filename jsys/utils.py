@@ -94,7 +94,7 @@ def year_two_digits(x):
 
 def avail_choices(x):
     data = {
-        1:'All Day',
+        1:'Full Day',
         2:'Need Off',
         3:'Late Start',
         4:'Early Out',

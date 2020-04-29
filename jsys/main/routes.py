@@ -20,7 +20,8 @@ def home():
             # next week's schedule
         work_next = Schedule.query.filter_by(emp_id=current_user.id).filter(Schedule.work_date>=this_day.id+7, Schedule.work_date<=this_day.id+13).order_by(Schedule.work_date).all()
     else:
-        work = 'NOTHING'
+        work_this = 'NOTHING'
+        work_next = 'Nope'
     return render_template('home.html', work=work_this, work2=work_next, title='Home', utils=utils)
 
 @main.route('/new', methods=['GET', 'POST'])

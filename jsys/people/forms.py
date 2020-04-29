@@ -29,15 +29,10 @@ class RegGuy(FlaskForm):
             raise ValidationError('This email belongs to ' + g.first_name + ' ' + g.last_name + '.')
 
 
-class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    pw = PasswordField('Password', validators=[DataRequired()])
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Login')
 
 
 class UpdateAvailabilityForm(FlaskForm):
-    choose = [('1','All Day'),('2','Need Off'),('3','Late Start'),('4','Early Out'),('5','Custom')]
+    choose = [('1',utils.avail_choices(1)),('2',utils.avail_choices(2)),('3',utils.avail_choices(3)),('4',utils.avail_choices(4)),('5',utils.avail_choices(5))]
 
     monday_opt = SelectField('Monday', validators=[DataRequired()], choices=choose)
     tuesday_opt = SelectField(validators=[DataRequired()], choices=choose)
@@ -70,6 +65,11 @@ class UpdateAccountForm(FlaskForm):
 			if user:
 				raise ValidationError('That email is taken. Please choose a different one.')
 
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    pw = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Login')
 
 class RequestResetForm(FlaskForm):
 	email = StringField('Email', validators=[DataRequired(), Email()])
@@ -79,7 +79,6 @@ class RequestResetForm(FlaskForm):
 		user = User.query.filter_by(email=email.data).first()
 		if user is None:
 			raise ValidationError('There is no account with that email. You must register first.')
-
 
 class ResetPasswordForm(FlaskForm):
 	password = PasswordField('Password', validators=[DataRequired()])

@@ -1,0 +1,33 @@
+{% extends 'shell.html' %}
+{% block content %}
+<div class="portal-card">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.month_year_opt }}
+      {{ form.month_year_opt.label }}
+      {% if form.month_year_opt.errors %}
+  			{% for error in form.month_year_opt.errors %}
+  				<div class="form-group form-err">{{ error }}</div>
+  			{% endfor %}
+  		{% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.day_field }}
+      {{ form.day_field.label }}
+      {% if form.day_field.errors %}
+  			{% for error in form.day_field.errors %}
+  				<div class="form-group form-err">{{ error }}</div>
+  			{% endfor %}
+  		{% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.submit }}
+    </div>
+  </form>
+</div>
+
+<div class="portal-card">
+  YOOOO!!!
+</div>
+{% endblock content %}

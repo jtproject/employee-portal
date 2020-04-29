@@ -1,0 +1,57 @@
+{% extends 'shell.html' %}
+
+{% block content %}
+
+<div class="portal-card">
+  {% if current_user.is_authenticated %}
+    <div class="portal-table">
+      <div class="portal-table-title">This Month</div>
+      {% for x in work %}
+        <div class="portal-table-row">
+          <div class="portal-table-col-half flex">
+            <div class="schedule-day center">
+              <span>
+                {{ utils.weekday_str_to_abr(x.workdate.day_name).upper() }}
+              </span>
+            </div>
+            <div class="schedule-date">
+              {{ utils.month_num_to_abr(x.workdate.calid.the_month) }}
+              {{ x.workdate.day_num }}
+            </div>
+          </div>
+          <div class="portal-table-col-half center">
+            {{ x.on_off }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<div class="portal-card">
+  {% if current_user.is_authenticated %}
+    <div class="portal-table">
+      <div class="portal-table-title">Next Month</div>
+      {% for x in work2 %}
+        <div class="portal-table-row">
+          <div class="portal-table-col-half flex">
+            <div class="schedule-day center">
+              <span>
+                {{ utils.weekday_str_to_abr(x.workdate.day_name).upper() }}
+              </span>
+            </div>
+            <div class="schedule-date">
+              {{ utils.month_num_to_abr(x.workdate.calid.the_month) }}
+              {{ x.workdate.day_num }}
+            </div>
+          </div>
+          <div class="portal-table-col-half center">
+            {{ x.on_off }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{% endblock content %}

@@ -29,5 +29,7 @@ def build():
     _A.register_blueprint(cal)
     from jsys.schedule.routes import work
     _A.register_blueprint(work)
+    from jsys.events.routes import job
+    _A.register_blueprint(job)
 
     return _A
