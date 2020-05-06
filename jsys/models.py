@@ -97,16 +97,16 @@ class Event(_D.Model):
     id = _D.Column(_D.Integer, primary_key=True)
     date_added = _D.Column(_D.String(20), nullable=False, default=datetime.today().strftime('%Y-%m-%d'))
     added_by = _D.Column(_D.Integer, _D.ForeignKey('employee.id'), nullable=False)
-    # event_date = _D.Column(_D.String(20), nullable=False)
     event_date = _D.Column(_D.Integer, _D.ForeignKey('the_days.id'), nullable=False)
     event_name = _D.Column(_D.String(30), nullable=False)
     event_desc = _D.Column(_D.String(350), nullable=False, default='No description added yet.')
-    # setup_date = _D.Column(_D.String(20), nullable=False, default='TBD')
-    # pickup_date = _D.Column(_D.String(20), nullable=False, default='TBD')
-    setup_date = _D.Column(_D.Integer, _D.ForeignKey('the_days.id'))
-    pickup_date = _D.Column(_D.Integer, _D.ForeignKey('the_days.id'))
+    setup_date = _D.Column(_D.Integer, _D.ForeignKey('the_days.id'), default=1)
+    pickup_date = _D.Column(_D.Integer, _D.ForeignKey('the_days.id'), default=1)
     after_hours_setup = _D.Column(_D.String(5))
     after_hours_pickup = _D.Column(_D.String(5))
+
+    def __repr__(self):
+        return f'[EVENT{self.id}] :: {self.event_name}'
 
 class TheCalendar(_D.Model):
     id = _D.Column(_D.Integer, primary_key=True)

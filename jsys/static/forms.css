@@ -34,11 +34,16 @@
 }
 
 .form-row input:focus, .form-row input:valid,
-.form-row select:focus, .form-row select:valid {
+.form-row select:focus, .form-row select:valid,
+.form-row textarea:focus, .form-row textarea:valid {
   background: green;
   border-bottom: 2px solid #ddd;
   border-radius: .5em;
   box-shadow: none;
+}
+
+.form-row textarea {
+  height: 250px;
 }
 
 .form-row label {

@@ -16,7 +16,7 @@
       <div class="portal-table-title">Event Date</div>
       <div class="portal-table-row">
         <div class="portal-table-col-x2 center">
-          <div class="form-row">
+          <div class="form-row mr05">
             {{ form.event_my_opt.label }}
             {{ form.event_my_opt }}
             {% if form.event_my_opt.errors %}
@@ -27,9 +27,9 @@
           </div>
         </div>
         <div class="portal-table-col">
-          <div class="form-row">
-            {{ form.event_day }}
+          <div class="form-row ml05">
             {{ form.event_day.label }}
+            {{ form.event_day }}
             {% if form.event_day.errors %}
               {% for error in form.event_day.errors %}
                 <div class="form-group form-err">{{ error }}</div>
@@ -55,7 +55,7 @@
     <div class="portal-table-title">Setup Date/Time</div>
     <div class="portal-table-row">
       <div class="portal-table-col-x2 center">
-        <div class="form-row">
+        <div class="form-row mr05">
           {{ form.setup_my_opt.label }}
           {{ form.setup_my_opt }}
           {% if form.setup_my_opt.errors %}
@@ -66,9 +66,9 @@
         </div>
       </div>
       <div class="portal-table-col">
-        <div class="form-row">
-          {{ form.setup_day }}
+        <div class="form-row ml05">
           {{ form.setup_day.label }}
+          {{ form.setup_day }}
           {% if form.setup_day.errors %}
             {% for error in form.setup_day.errors %}
               <div class="form-group form-err">{{ error }}</div>
@@ -78,8 +78,8 @@
       </div>
     </div>
     <div class="form-row">
-      {{ form.odd_setup }}
       {{ form.odd_setup.label }}
+      {{ form.odd_setup }}
       {% if form.odd_setup.errors %}
         {% for error in form.odd_setup.errors %}
           <div class="form-group form-err">{{ error }}</div>
@@ -89,7 +89,7 @@
     <div class="portal-table-title">Pickup Date/Time</div>
     <div class="portal-table-row">
       <div class="portal-table-col-x2 center">
-        <div class="form-row">
+        <div class="form-row mr05">
           {{ form.pickup_my_opt.label }}
           {{ form.pickup_my_opt }}
           {% if form.pickup_my_opt.errors %}
@@ -100,9 +100,9 @@
         </div>
       </div>
       <div class="portal-table-col">
-        <div class="form-row">
-          {{ form.pickup_day }}
+        <div class="form-row ml05">
           {{ form.pickup_day.label }}
+          {{ form.pickup_day }}
           {% if form.pickup_day.errors %}
             {% for error in form.pickup_day.errors %}
               <div class="form-group form-err">{{ error }}</div>
@@ -112,16 +112,26 @@
       </div>
     </div>
     <div class="form-row">
-      {{ form.odd_pickup }}
       {{ form.odd_pickup.label }}
+      {{ form.odd_pickup }}
       {% if form.odd_pickup.errors %}
       {% for error in form.odd_pickup.errors %}
       <div class="form-group form-err">{{ error }}</div>
       {% endfor %}
       {% endif %}
     </div>
-    <div class="form-row">
-      {{ form.submit2 }}
+    <div class="portal-table-title">Done?</div>
+    <div class="portal-table-row">
+      <div class="portal-table-col-half">
+        <div class="form-row mr05">
+          {{ form.submit }}
+        </div>
+      </div>
+      <div class="portal-table-col-half">
+        <div class="form-row ml05">
+          <input type="submit" value="Cancel" onclick="window.location.href='{{url_for('main.home')}}'">
+        </div>
+      </div>
     </div>
   </div>
   </form>
