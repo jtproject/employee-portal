@@ -8,7 +8,7 @@
       <div class="portal-table-title">This Month</div>
       {% for x in work %}
         <div class="portal-table-row">
-          <div class="portal-table-col-half flex">
+          <div class="portal-table-col-x2 flex">
             <div class="schedule-day center">
               <span>
                 {{ utils.weekday_str_to_abr(x.workdate.day_name).upper() }}
@@ -19,7 +19,7 @@
               {{ x.workdate.day_num }}
             </div>
           </div>
-          <div class="portal-table-col-half center">
+          <div class="portal-table-col center">
             {{ x.on_off }}
           </div>
         </div>

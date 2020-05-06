@@ -16,7 +16,7 @@
   list-style: none;
 }
 
-.form-row input, .form-row select {
+.form-row input, .form-row select, .form-row textarea {
   width: 100%;
   padding: .5em 1em;
   font-size: 16px;

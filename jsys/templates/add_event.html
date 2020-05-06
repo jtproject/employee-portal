@@ -3,31 +3,127 @@
 <div class="portal-card">
   <form method="POST" action="">
     {{ form.hidden_tag() }}
-    <div class="form-group">
-      {{ form.month_year_opt }}
-      {{ form.month_year_opt.label }}
-      {% if form.month_year_opt.errors %}
-  			{% for error in form.month_year_opt.errors %}
-  				<div class="form-group form-err">{{ error }}</div>
-  			{% endfor %}
-  		{% endif %}
+    <div class="portal-table">
+      <div class="portal-table-title">{{ form.event_name.label }}</div>
+      <div class="form-row">
+        {{ form.event_name }}
+        {% if form.event_name.errors %}
+          {% for error in form.event_name.errors %}
+            <div class="form-group form-err">{{ error }}</div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="portal-table-title">Event Date</div>
+      <div class="portal-table-row">
+        <div class="portal-table-col-x2 center">
+          <div class="form-row">
+            {{ form.event_my_opt.label }}
+            {{ form.event_my_opt }}
+            {% if form.event_my_opt.errors %}
+              {% for error in form.event_my_opt.errors %}
+                <div class="form-group form-err">{{ error }}</div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        <div class="portal-table-col">
+          <div class="form-row">
+            {{ form.event_day }}
+            {{ form.event_day.label }}
+            {% if form.event_day.errors %}
+              {% for error in form.event_day.errors %}
+                <div class="form-group form-err">{{ error }}</div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="portal-table-title">{{ form.event_desc.label }}</div>
+      <div class="form-row">
+        {{ form.event_desc }}
+        {% if form.event_desc.errors %}
+        {% for error in form.event_desc.errors %}
+        <div class="form-group form-err">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+      </div>
     </div>
-    <div class="form-group">
-      {{ form.day_field }}
-      {{ form.day_field.label }}
-      {% if form.day_field.errors %}
-  			{% for error in form.day_field.errors %}
-  				<div class="form-group form-err">{{ error }}</div>
-  			{% endfor %}
-  		{% endif %}
-    </div>
-    <div class="form-group">
-      {{ form.submit }}
-    </div>
-  </form>
 </div>
 
 <div class="portal-card">
-  YOOOO!!!
+  <div class="portal-table">
+    <div class="portal-table-title">Setup Date/Time</div>
+    <div class="portal-table-row">
+      <div class="portal-table-col-x2 center">
+        <div class="form-row">
+          {{ form.setup_my_opt.label }}
+          {{ form.setup_my_opt }}
+          {% if form.setup_my_opt.errors %}
+            {% for error in form.event_my_opt.errors %}
+              <div class="form-group form-err">{{ error }}</div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="portal-table-col">
+        <div class="form-row">
+          {{ form.setup_day }}
+          {{ form.setup_day.label }}
+          {% if form.setup_day.errors %}
+            {% for error in form.setup_day.errors %}
+              <div class="form-group form-err">{{ error }}</div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      {{ form.odd_setup }}
+      {{ form.odd_setup.label }}
+      {% if form.odd_setup.errors %}
+        {% for error in form.odd_setup.errors %}
+          <div class="form-group form-err">{{ error }}</div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="portal-table-title">Pickup Date/Time</div>
+    <div class="portal-table-row">
+      <div class="portal-table-col-x2 center">
+        <div class="form-row">
+          {{ form.pickup_my_opt.label }}
+          {{ form.pickup_my_opt }}
+          {% if form.pickup_my_opt.errors %}
+            {% for error in form.pickup_my_opt.errors %}
+              <div class="form-group form-err">{{ error }}</div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="portal-table-col">
+        <div class="form-row">
+          {{ form.pickup_day }}
+          {{ form.pickup_day.label }}
+          {% if form.pickup_day.errors %}
+            {% for error in form.pickup_day.errors %}
+              <div class="form-group form-err">{{ error }}</div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      {{ form.odd_pickup }}
+      {{ form.odd_pickup.label }}
+      {% if form.odd_pickup.errors %}
+      {% for error in form.odd_pickup.errors %}
+      <div class="form-group form-err">{{ error }}</div>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <div class="form-row">
+      {{ form.submit2 }}
+    </div>
+  </div>
+  </form>
 </div>
 {% endblock content %}
