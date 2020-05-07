@@ -5,7 +5,7 @@
 <div class="portal-card">
   {% if current_user.is_authenticated %}
     <div class="portal-table">
-      <div class="portal-table-title">This Week</div>
+      <div class="portal-table-title">Schedule - Next 7 Days</div>
       {% for x in work %}
         <div class="portal-table-row">
           <div class="portal-table-col-half flex">
@@ -30,21 +30,21 @@
 <div class="portal-card">
   {% if current_user.is_authenticated %}
     <div class="portal-table">
-      <div class="portal-table-title">Next Week</div>
-      {% for x in work2 %}
+      <div class="portal-table-title">Events - Next 30 Days</div>
+      {% for x in job %}
         <div class="portal-table-row">
           <div class="portal-table-col-half flex">
             <div class="schedule-day center">
               <span>
-                {{ utils.weekday_str_to_abr(x.workdate.day_name).upper() }}
+                {{ utils.weekday_str_to_abr(x.eventdate.day_name).upper() }}
               </span>
             </div>
             <div class="schedule-date">
-              {{ utils.month_num_to_abr(x.workdate.calid.the_month) }}{{ x.workdate.day_num }}
+              {{ utils.month_num_to_abr(x.eventdate.calid.the_month) }}{{ x.eventdate.day_num }}
             </div>
           </div>
           <div class="portal-table-col-half center">
-            {{ x.on_off }}
+            {{ x.event_name }}
           </div>
         </div>
       {% endfor %}

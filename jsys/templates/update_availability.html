@@ -5,22 +5,31 @@
 {% if current_user.is_authenticated %}
   <div class="portal-card">
     <form action="" method="POST">
+      {{ form.hidden_tag() }}
     <div class="portal-table">
       <div class="portal-table-title">Monday</div>
       <div class="portal-table-row">
+        <div class="form-row w-100">
           {{ form.monday_opt }}
+        </div>
       </div>
         <div class="portal-table-title">Tuesday</div>
       <div class="portal-table-row">
+        <div class="form-row w-100">
           {{ form.tuesday_opt }}
+        </div>
       </div>
         <div class="portal-table-title">Wednesday</div>
       <div class="portal-table-row">
+        <div class="form-row w-100">
           {{ form.wednesday_opt }}
+        </div>
       </div>
         <div class="portal-table-title">Thursday</div>
       <div class="portal-table-row">
+        <div class="form-row w-100">
           {{ form.thursday_opt }}
+        </div>
       </div>
     </div>
   </div>
@@ -29,22 +38,37 @@
     <div class="portal-table">
       <div class="portal-table-title">Friday</div>
       <div class="portal-table-row">
+        <div class="form-row w-100">
           {{ form.friday_opt }}
+        </div>
       </div>
       <div class="portal-table-title">Saturday</div>
       <div class="portal-table-row">
+        <div class="form-row w-100">
           {{ form.saturday_opt }}
+        </div>
       </div>
       <div class="portal-table-title">Sunday</div>
       <div class="portal-table-row">
+        <div class="form-row w-100">
           {{ form.sunday_opt }}
+        </div>
       </div>
       <div class="portal-table-title">Finished?</div>
       <div class="portal-table-row">
-        {{ form.submit }}
+        <div class="portal-table-col-half">
+          <div class="form-row mr05">
+            {{ form.submit }}
+          </div>
+        </form>
+        </div>
+        <div class="portal-table-col-half">
+          <div class="form-row ml05">
+            <input type="submit" value="Cancel" onclick="window.location.href='{{url_for('guy.profile')}}'">
+          </div>
+        </div>
       </div>
     </div>
-    </form>
   </div>
 {% else %}
   HOW YOU HERE???

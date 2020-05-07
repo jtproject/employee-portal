@@ -34,7 +34,7 @@
     <!-- menu bar -->
     <div class="portal-menu">
       <div class="portal-menu-btn">
-        <button class="menu-link" onclick="window.location.href='{{url_for('cal.view_cal')}}';">
+        <button class="menu-link" onclick="window.location.href='{{url_for('work.sched')}}';">
           <img src="{{url_for('static', filename='img/schedule2.png')}}" alt="">
           <p class="btn-text">Schedule</p>
         </button>
@@ -46,7 +46,7 @@
         </button>
       </div>
       <div class="portal-menu-btn">
-        <button class="menu-link" onclick="window.location.href='#';">
+        <button class="menu-link" onclick="window.location.href='{{url_for('cal.view_cal')}}';">
           <img src="{{url_for('static', filename='img/alert1.png')}}" alt="">
           <p class="btn-text">Alerts</p>
         </button>

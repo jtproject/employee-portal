@@ -20,6 +20,18 @@ def req_off():
     return render_template('request_off.html', title='Request Off', form=form)
 
 
+@work.route('/schedule')
+def sched():
+    if current_user.is_authenticated:
+        this_day = dataf.today()
+        work_this = Schedule.query.filter_by(emp_id=current_user.id).filter(Schedule.work_date>=this_day.id, Schedule.work_date<=this_day.id+6).order_by(Schedule.work_date).all()
+        work_next = Schedule.query.filter_by(emp_id=current_user.id).filter(Schedule.work_date>=this_day.id+7, Schedule.work_date<=this_day.id+13).order_by(Schedule.work_date).all()
+    else:
+        flash(f'Restricted area. Please login below.')
+        return redirect(url_for('guy.login'))
+    return render_template('view_schedule.html', title='Schedule', work=work_this, work2=work_next, utils=utils)
+
+
 @work.route('/schedule/add', methods=['GET', 'POST'])
 def add_single():
     list_workers = dataf.form_choices_active_emp()

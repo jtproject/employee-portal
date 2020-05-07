@@ -3,11 +3,14 @@ from jsys.models import TheCalendar, TheDays, Employee, Schedule, Requests, Avai
 from jsys.events.forms import AddEventForm
 from flask_login import login_user, current_user, logout_user, login_required
 from jsys import _D, utils, dataf
+from datetime import datetime
 
 job = Blueprint('job', __name__)
 
 @job.route('/events')
 def events():
+    now = datetime.now()
+    #today = dataf.today(int(now.day))
     job = Event.query
     job2 = Event.query
     return render_template('view_events.html', title='Upcoming Events', job=job, job2=job2, utils=utils)
@@ -20,11 +23,12 @@ def add_event():
     form.setup_my_opt.choices = list_month_year[0:12]
     form.pickup_my_opt.choices = list_month_year[0:12]
     if form.validate_on_submit():
-        x = Event(added_by=current_user.id, event_date=form.event_day.data, event_name=form.event_name.data, event_desc=form.event_desc.data)
-        _D.session.add(x)
-        _D.session.commit()
-        print(x)
-        flash(f'Go!')
+        e_day = dataf.alpha_today(int(form.event_my_opt.data),int(form.event_day.data))
+        x = Event(added_by=current_user.id, event_date=e_day, event_name=form.event_name.data, event_desc=form.event_desc.data)
+        #_D.session.add(x)
+        #_D.session.commit()
+        print(x.event_date)
+        flash(f'{form.event_name.data} event added.')
         return redirect(url_for('main.home'))
     return render_template('add_event.html', title='Add Event', form=form)
 

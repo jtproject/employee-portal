@@ -20,3 +20,14 @@ def form_choices_mon_yr():
         new_year = utils.year_two_digits(y.the_year)
         list_month_year.append((y.id, new_month + ' ' + new_year))
     return list_month_year
+
+def alpha_today(x,y):
+    month = TheCalendar.query.filter_by(id=x).first()
+    day = TheDays.query.filter(TheDays.day_num==y, TheDays.cal_id==month.id).first()
+    return day
+
+def today():
+    now = datetime.now()
+    this_month = TheCalendar.query.filter_by(the_year=now.year,the_month=int(now.month)).first()
+    this_day = TheDays.query.filter_by(calid=this_month, day_num=now.day).first()
+    return this_day

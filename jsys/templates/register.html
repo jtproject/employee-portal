@@ -7,8 +7,6 @@
     <div class="form-row">
       {{ form.fname.label }}
       {{ form.fname }}
-      <!--label for="row1">Input</label>
-      <input type="text" id="row1" required=""-->
     </div>
     {% if form.fname.errors %}
 			{% for error in form.fname.errors %}
@@ -66,15 +64,21 @@
 			{% endfor %}
 		{% endif %}
 
-    <div class="form-row">
-      {{ form.submit }}
-      <span>Already Registered? <a href="{{url_for('guy.login')}}">Login</a></span>
+    <div class="portal-table-row">
+      <div class="portal-table-col">
+        <div class="form-row">
+          {{ form.submit }}
+        </div>
+      </div>
+      <div class="portal-table-col-x2 right">
+        <span>Already Registered? <a href="{{url_for('guy.login')}}">Login</a></span>
+      </div>
     </div>
   </form>
 </div>
 
 <div class="portal-card">
-  
+
 </div>
 
 {% endblock content %}
