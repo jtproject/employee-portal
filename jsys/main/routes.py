@@ -1,5 +1,5 @@
-from flask import render_template, url_for, request, Blueprint, redirect
-from jsys.models import TheCalendar, TheDays, Employee, Schedule, Event
+from flask import render_template, url_for, request, Blueprint, redirect, flash
+from jsys.models import TheCalendar, TheDays, Employee, Schedule, Event, Available
 from flask_login import current_user
 from jsys import _D, utils, dataf
 from datetime import datetime
@@ -26,4 +26,16 @@ def home():
 
 @main.route('/new', methods=['GET', 'POST'])
 def new():
-    return render_template('shell.html', title='Build Test')
+    guy = Employee.query.filter_by(id=current_user.id).first()
+    hours = Available.query.filter_by(emp_id=current_user.id).first()
+    return render_template('view_profile.html', title='Profile', guy=guy, hours=hours, utils=utils)
+
+@main.route('/new/<guy_name>', methods=['GET', 'POST'])
+def newer(guy_name):
+    guy = Employee.query.filter_by(first_name=guy_name.title()).first()
+    hours = Available.query.filter_by(emp_id=current_user.id).first()
+    try:
+        return render_template('view_profile.html', title='Profile', guy=guy, hours=hours, utils=utils)
+    except:
+        flash(f'No user \'{guy_name}\' found.')
+        return redirect(url_for('main.home'))
